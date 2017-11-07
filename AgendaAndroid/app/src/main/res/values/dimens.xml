@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="card_margin_vertical">18dp</dimen>
+    <dimen name="card_margin_horizontal">10dp</dimen>
+    <dimen name="activity_global_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="title_text">18sp</dimen>
+</resources>
