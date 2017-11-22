@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">Agenda Android</string>
+    <string name="action_settings">Configuración</string>
+    <string name="buscar">Buscar</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
+    <string name="telefono">Telefono</string>
+    <string name="guardar">Guardar</string>
+    <string name="title_activity_detalle">Detalle</string>
+    <string name="data" translatable="false">{{ data }}</string>
+    <string name="formato_de_datos">Formato de Datos</string>
+
+    <!-- definicion de arreglo de string -->
+    <string-array name="formatos" translatable="false">
+        <item>Json</item>
+        <item>XML - (SAX)</item>
+    </string-array>
+
+
+</resources>
