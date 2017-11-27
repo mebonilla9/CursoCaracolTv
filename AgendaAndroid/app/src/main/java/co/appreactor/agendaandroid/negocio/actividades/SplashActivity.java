@@ -1,4 +1,4 @@
-package co.appreactor.agendaandroid;
+package co.appreactor.agendaandroid.negocio.actividades;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import co.appreactor.agendaandroid.negocio.actividades.MainActivity;
+import co.appreactor.agendaandroid.R;
 
 public class SplashActivity extends AppCompatActivity {
 

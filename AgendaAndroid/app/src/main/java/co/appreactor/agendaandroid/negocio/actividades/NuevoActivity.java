@@ -14,8 +14,8 @@ import java.util.List;
 import co.appreactor.agendaandroid.R;
 import co.appreactor.agendaandroid.modelo.entidades.Persona;
 import co.appreactor.agendaandroid.modelo.servicio.Archivo;
-import co.appreactor.agendaandroid.modelo.servicio.ArchivoJson;
 import co.appreactor.agendaandroid.negocio.utilidades.AlertaUtil;
+import co.appreactor.agendaandroid.negocio.utilidades.PreferenciasUtil;
 
 public class NuevoActivity extends AppCompatActivity {
 
@@ -38,7 +38,9 @@ public class NuevoActivity extends AppCompatActivity {
         this.txtCorreo = findViewById(R.id.txtCorreo);
         this.txtNombre = findViewById(R.id.txtNombre);
         this.imageView = findViewById(R.id.imageView);
-        archivador = new ArchivoJson();
+        archivador = PreferenciasUtil.obtenerArchivo(
+                NuevoActivity.this
+        );
         asignarEventos();
     }
 

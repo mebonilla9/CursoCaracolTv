@@ -14,4 +14,5 @@
     <string name="consultar_tipo_eventos">Consultar Tipo Eventos</string>
     <string name="configuracion">Configuración</string>
     <string name="dynamic_data">{value}</string>
+    <string name="registrar_evento">Registrar Evento</string>
 </resources>

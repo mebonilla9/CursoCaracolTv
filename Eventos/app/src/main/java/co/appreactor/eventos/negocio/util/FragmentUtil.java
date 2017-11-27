@@ -32,7 +32,7 @@ public final class FragmentUtil {
                 tag = "Consultar Salas";
                 break;
             case R.id.miVerTipoEvento:
-
+                fragmento = new Fragment();
                 break;
             default:
                 fragmento = new Fragment();

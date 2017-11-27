@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import co.appreactor.agendasqlite.R;
+import co.appreactor.agendasqlite.modelo.dao.PersonaDao;
 import co.appreactor.agendasqlite.modelo.entidades.Persona;
 import co.appreactor.agendasqlite.negocio.utilidades.AlertaUtil;
 
@@ -42,8 +43,9 @@ public class NuevoActivity extends AppCompatActivity {
                 personaGuardar.setNombre(txtNombre.getEditText().getText().toString());
                 personaGuardar.setCorreo(txtCorreo.getEditText().getText().toString());
                 personaGuardar.setTelefono(txtTelefono.getEditText().getText().toString());
+                personaGuardar.setEstado(true);
 
-                // leer la estructura actual del archivo plano
+                new PersonaDao(NuevoActivity.this).insertar(personaGuardar);
 
                 // Invocar a la alerta
                 AlertaUtil.mostrarAlerta("Guardar persona",

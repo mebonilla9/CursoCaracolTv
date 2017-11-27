@@ -8,16 +8,18 @@ import java.io.Serializable;
 
 public class Persona implements Serializable {
 
-    private int id;
+    private Long id;
     private String nombre;
     private String correo;
     private String telefono;
+    private Boolean estado;
 
-    public int getId(){
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,5 +45,13 @@ public class Persona implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }

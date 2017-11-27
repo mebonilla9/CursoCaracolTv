@@ -14,13 +14,14 @@
         <activity
             android:name=".negocio.actividades.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".negocio.actividades.NuevoActivity" />
         <activity
             android:name=".negocio.actividades.DetalleActivity"
             android:label="@string/title_activity_detalle"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".negocio.actividades.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".negocio.actividades.ConfiguracionActivity"></activity>
     </application>
 
 </manifest>

@@ -38,7 +38,7 @@ public class AdaptadorPersona extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return dataSet.get(position).getId();
     }
 
     @Override

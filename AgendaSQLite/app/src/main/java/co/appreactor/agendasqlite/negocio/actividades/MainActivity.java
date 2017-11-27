@@ -1,15 +1,10 @@
 package co.appreactor.agendasqlite.negocio.actividades;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -22,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.appreactor.agendasqlite.R;
+import co.appreactor.agendasqlite.modelo.dao.PersonaDao;
 import co.appreactor.agendasqlite.modelo.entidades.Persona;
 import co.appreactor.agendasqlite.negocio.adaptadores.AdaptadorPersona;
 import co.appreactor.agendasqlite.negocio.utilidades.AlertaUtil;
@@ -32,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private TextInputLayout txtBuscar;
     private ListView lstPersonas;
-
-    private final int codigoPermiso = 666;
-    private final String[] permisos = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     // lista original que contiene todos los datos del archivo plano
     private List<Persona> listaPersonas;
@@ -55,22 +48,6 @@ public class MainActivity extends AppCompatActivity {
         this.toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(this.toolbar);
         asignarEventos();
-        asignarPermisos();
-    }
-
-    private void asignarPermisos() {
-        // Validar que el permiso no ha sido concedido aun
-        int permisoConcedido = ContextCompat.checkSelfPermission(
-                MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permisoConcedido != PackageManager.PERMISSION_GRANTED){
-            // Solicitud del permiso en tiempo de ejecucion
-            ActivityCompat.requestPermissions(
-                    this,
-                    permisos,
-                    codigoPermiso
-                    );
-            return;
-        }
         llenarLista();
     }
 
@@ -168,18 +145,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(irDetalle);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == codigoPermiso &&
-                (grantResults.length > 0 &&
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                ){
-            llenarLista();
-        }
-    }
-
     private void llenarLista(){
-        // cargar la informacion del archivo plano
+        // cargar la informacion de la base de datos
+        listaPersonas = new PersonaDao(MainActivity.this).consultar();
         // Crear un nuevo objeto del adaptador para el listView
         AdaptadorPersona adaptador = new AdaptadorPersona(
                 MainActivity.this,listaPersonas
